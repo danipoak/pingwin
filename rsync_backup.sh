@@ -15,4 +15,4 @@ EXCLUDES=(
     "--exclude=/lost+found/*"
 )
 
-sudo rsync -aAXv / "${EXCLUDES[@]}" /run/media/steve/ZEBRA/pingwin_backup/
+sudo rsync -aqAXv / "${EXCLUDES[@]}" /run/media/steve/ZEBRA/pingwin_backup/
