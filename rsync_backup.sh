@@ -15,4 +15,4 @@ EXCLUDES=(
     "--exclude=/lost+found/*"
 )
 
-sudo rsync -aqAXv "${EXCLUDES[@]}" --progress  --dry-run --log-file=/home/steve/rsync_backup.log / /run/media/steve/ZEBRA/pingwin_backup/
+sudo rsync -ahAXv "${EXCLUDES[@]}" --progress --log-file=/home/steve/rsync_backup.log / /mnt/SLON/pingwin_backup/
