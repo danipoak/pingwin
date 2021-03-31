@@ -1,11 +1,9 @@
+#!/bin/bash
+#rsync backup script
 set -o errexit
 set -o nounset
 set -o pipefail
 
-#Directories to include:
-INCLUDES=(
-    "--include=/"
-)
 #Directories to exclude:
 EXCLUDES=(
     "--exclude=/dev/"
@@ -22,6 +20,7 @@ EXCLUDES=(
     "--exclude=/lost+found/"
 )
 
+readonly SOURCE="/"
 readonly DESTINATION="/mnt/SLON/pingwin_backup"
 readonly DATETIME="$(date '+%Y-%m-%d_%H:%M:S')"
 readonly BACKUP_PATH="${DESTINATION}/${DATETIME}"
@@ -30,9 +29,9 @@ readonly LATEST_LINK="${DESTINATION}/latest"
 mkdir -p "${DESTINATION}"
 
 sudo rsync -ahAX --info=progress2 --delete \
-    "${EXCLUDES[@]}" \
-    "${INCLUDES[@]}" \
+    "${SOURCE}" \
     --link-dest "${LATEST_LINK}" \
+    "${EXCLUDES}" \
     "${BACKUP_PATH}"
 
 sudo rm -rf "${LATEST_LINK}"
