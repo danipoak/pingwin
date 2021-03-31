@@ -22,7 +22,7 @@ EXCLUDES=(
 
 readonly SOURCE="/"
 readonly DESTINATION="/mnt/SLON/pingwin_backup"
-readonly DATETIME="$(date '+%Y-%m-%d_%H:%M:S')"
+readonly DATETIME="$(date '+%Y-%m-%d_%H:%M')"
 readonly BACKUP_PATH="${DESTINATION}/${DATETIME}"
 readonly LATEST_LINK="${DESTINATION}/latest"
 
