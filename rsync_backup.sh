@@ -28,10 +28,10 @@ readonly LATEST_LINK="${DESTINATION}/latest"
 
 mkdir -p "${DESTINATION}"
 
-sudo rsync -ahAX --info=progress2 --delete \
+sudo rsync -ahAX --info=progress2 --delete --dry-run\
     "${SOURCE}" \
     --link-dest "${LATEST_LINK}" \
-    "${EXCLUDES}" \
+    "${EXCLUDES[@]}" \
     "${BACKUP_PATH}"
 
 sudo rm -rf "${LATEST_LINK}"
