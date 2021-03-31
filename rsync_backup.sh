@@ -29,4 +29,11 @@ readonly LATEST_LINK="${DESTINATION}/latest"
 
 mkdir -p "${DESTINATION}"
 
-sudo rsync -ahAX "${EXCLUDES[@]}" --info=progress2 "${INCLUDES[@]}" /mnt/SLON/pingwin_backup/
+sudo rsync -ahAX --info=progress2 --delete \
+    "${EXCLUDES[@]}" \
+    "${INCLUDES[@]}" \
+    --link-dest "${LATEST_LINK}" \
+    "${BACKUP_PATH}"
+
+sudo rm -rf "${LATEST_LINK}"
+ln -s "${BACKUP_PATH}" "${LATEST_LINK}"
