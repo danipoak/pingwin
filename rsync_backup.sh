@@ -28,7 +28,7 @@ readonly LATEST_LINK="${DESTINATION}/latest"
 
 mkdir -p "${DESTINATION}"
 
-sudo rsync -ahAX --info=progress2 --delete --dry-run\
+sudo rsync -ahAX --info=progress2 --delete \
     "${SOURCE}" \
     --link-dest "${LATEST_LINK}" \
     "${EXCLUDES[@]}" \
