@@ -20,4 +20,4 @@ EXCLUDES=(
     "--exclude=/lost+found/"
 )
 
-sudo restic -r /mnt/SLON/restic_repo backup "${EXCLUDES[@]}" / 
+sudo restic -r /mnt/SLON/restic_repo backup "${EXCLUDES[@]}" / -p /home/steve/restic_pass.txt
