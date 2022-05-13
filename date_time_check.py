@@ -14,7 +14,6 @@ To Do:
 1. Add date checker so that if the date is greater than something like
 50 days but less than 60 the script will prompt to run kpasswd/passwd
 for the user and then follup by running the record date option
-
 '''
 
 import argparse
@@ -27,9 +26,7 @@ args = parser.parse_args()
 
 if args.write:
     password_date = date.today()
-
     print('You have rest your password on:', password_date)
-
     with open ('password_reset_date.txt', 'w') as f:
         f.write(str(password_date))
 
