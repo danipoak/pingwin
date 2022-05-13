@@ -1,3 +1,12 @@
+'''
+Basic function to record the date of when you reset your password
+and then remind you of when you last reset your password
+for usage on HPC environments that require regular password resets
+but do not offer a means of reminding the user of when that needs
+to take place
+Author @danipoak
+'''
+
 from datetime import date
 
 password_date = date.today()
