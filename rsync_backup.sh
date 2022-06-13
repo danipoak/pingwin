@@ -18,6 +18,7 @@ EXCLUDES=(
     "--exclude=/mnt/"
     "--exclude=/media/"
     "--exclude=/lost+found/"
+    "--exclude=/.snapshots/"
 )
 
 readonly SOURCE="/"
