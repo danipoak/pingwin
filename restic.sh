@@ -18,6 +18,7 @@ EXCLUDES=(
     "--exclude=/mnt/"
     "--exclude=/media/"
     "--exclude=/lost+found/"
+    "--exclude=/.snapshots/"
 )
 
 sudo restic -r /mnt/SLON/restic_repo backup "${EXCLUDES[@]}" / -p /home/steve/restic_pass.txt
