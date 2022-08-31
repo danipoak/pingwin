@@ -24,3 +24,9 @@ EXCLUDES=(
 )
 
 sudo restic -r /mnt/SLON/restic_repo backup "${EXCLUDES[@]}" / -p /home/steve/restic_pass.txt
+sudo -E restic -r b2:pingwin-backup:/ forget \
+                --keep-within-daily 7d \
+                --keep-within-weekly 1m \
+                --keep-within-monthly 1y \
+                --keep-within-yearly 100y
+sudo -E restic -r b2:pingwin-backup:/ prune
