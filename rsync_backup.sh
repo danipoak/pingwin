@@ -19,6 +19,8 @@ EXCLUDES=(
     "--exclude=/media/"
     "--exclude=/lost+found/"
     "--exclude=/.snapshots/"
+    "--exclude=/home/steve/.local/share/steam"
+    "--exclude=/home/steve/Games"
 )
 
 readonly SOURCE="/"
