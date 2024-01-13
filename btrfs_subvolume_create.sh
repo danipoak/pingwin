@@ -1,11 +1,9 @@
 #!/bin/bash
 # openSUSE btrfs style subvolumes
 
-set -o errexit
-set -o nounset
-set -o pipefail
-
-
+set -o 
+set -x 
+set -u
 
 # create the subvolumes
 btrfs subvolume create /mnt/gentoo/@
@@ -15,7 +13,7 @@ btrfs subvolume create /mnt/gentoo/@/.snapshots/1/snapshot
 mkdir -p /mnt/gentoo/@/boot/grub/
 btrfs subvolume create /mnt/gentoo/@/boot/grub/x86_64-efi
 btrfs subvolume create /mnt/gentoo/@/home
-btrfs subvolume create /mnt/gentoo/@/home/SIOSTRA
+btrfs subvolume create /mnt/gentoo/@/home/steve/SIOSTRA
 btrfs subvolume create /mnt/gentoo/@/opt
 btrfs subvolume create /mnt/gentoo/@/root
 btrfs subvolume create /mnt/gentoo/@/srv
@@ -51,7 +49,7 @@ mount /dev/nvme0n1p2 /mnt/gentoo
 mkdir -p /mnt/gentoo/.snapshots
 mkdir -p /mnt/gentoo/boot/grub/x86_64-efi
 mkdir -p /mnt/gentoo/home
-mkdir -p /mnt/gentoo/home/SIOSTRA
+mkdir -p /mnt/gentoo/home/steve/SIOSTRA
 mkdir -p /mnt/gentoo/opt
 mkdir -p /mnt/gentoo/root
 mkdir -p /mnt/gentoo/srv
@@ -65,7 +63,7 @@ mkdir -p /mnt/gentoo/media
 mount /dev/nvme0n1p2 /mnt/gentoo/.snapshots -o subvol=@/.snapshots
 mount /dev/nvme0n1p2 /mnt/gentoo/boot/grub/x86_64-efi -o subvol=@/boot/grub/x86_64-efi
 mount /dev/nvme0n1p2 /mnt/gentoo/home -o subvol=@/home
-mount /dev/nvme0n1p2 /mnt/gentoo/home/SIOSTRA -o subvol=@/home/SIOSTRA
+mount /dev/nvme0n1p2 /mnt/gentoo/home/steve/SIOSTRA -o subvol=@/home/SIOSTRA
 mount /dev/nvme0n1p2 /mnt/gentoo/opt -o subvol=@/opt
 mount /dev/nvme0n1p2 /mnt/gentoo/root -o subvol=@/root
 mount /dev/nvme0n1p2 /mnt/gentoo/srv -o subvol=@/srv
